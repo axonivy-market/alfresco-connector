@@ -1,0 +1,12 @@
+Variables:
+  # Custom variables of Alfresco Content Services API
+  Alfresco:
+    # Username for "Alfresco Content Service"
+    Username: 'admin'
+
+    # The endpoint uri of the rest service. Preconfigured for the Docker Based Community Edition running on localhost port 8080
+    EndpointUri: 'http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1'
+
+    # The password for "Alfresco Content Service".
+    Password: '${encrypt:admin}'
+
