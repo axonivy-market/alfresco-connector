@@ -6,7 +6,7 @@ Alfresco Content Services Connector
 Axon Ivy’s Alfresco Content Services connector acceleratea process automation initiatives by accessing content wherever and however you work. 
 Alfresco Content Services includes full-featured enterprise content management system (ECM) capabilities.
 
-## Relase Management
+## Release Management
 
 `master` branch will be deployed as `SNAPSHOT` artifact to GitHub Package registry.
 
