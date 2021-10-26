@@ -23,6 +23,7 @@ EM0 f0 triggerEnabled false #txt
 EM0 f0 callSignature start() #txt
 EM0 f0 startName 'Upload Documents to Alfresco ECM' #txt
 EM0 f0 caseData businessCase.attach=true #txt
+EM0 f0 @CG|tags demo #txt 
 EM0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
