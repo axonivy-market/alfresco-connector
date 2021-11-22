@@ -9,6 +9,7 @@
     <module>alfresco-connector</module>
     <module>alfresco-connector-demo</module>
     <module>alfresco-connector-test</module>
+    <module>alfresco-connector-product</module>
   </modules>
 
   <scm>

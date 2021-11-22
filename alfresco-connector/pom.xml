@@ -4,12 +4,6 @@
   <artifactId>alfresco-connector</artifactId>
   <version>9.2.2-SNAPSHOT</version>
   <packaging>iar</packaging>
-   <distributionManagement>
-    <repository>
-      <id>github</id>
-      <url>https://maven.pkg.github.com/axonivy-market/alfresco-connector</url>
-    </repository>
-  </distributionManagement>
   <build>
     <plugins>
       <plugin>
