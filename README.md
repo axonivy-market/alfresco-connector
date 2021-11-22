@@ -1,5 +1,4 @@
-# alfresco-connector
-Alfresco Content Services Connector
+# Alfresco Content Services Connector
 
 [![CI Build](https://github.com/axonivy-market/alfresco-connector/actions/workflows/ci.yml/badge.svg)](https://github.com/axonivy-market/alfresco-connector/actions/workflows/ci.yml)
 
