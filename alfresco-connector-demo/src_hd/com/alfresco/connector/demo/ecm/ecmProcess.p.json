@@ -1,0 +1,335 @@
+{
+  "format" : "9.4.20",
+  "id" : "177A609A24FD435F",
+  "data" : "com.alfresco.connector.demo.ecm.ecmData",
+  "kind" : "HTML_DIALOG",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "HtmlDialogStart",
+      "name" : "start()",
+      "config" : {
+        "callSignature" : "start",
+        "input" : {
+          "map" : {
+            "out.connectionError" : "null",
+            "out.folder" : "[new com.alfresco.connector.demo.Folder().setName(\"Shared Folder\").setId(\"-shared-\")]",
+            "out.folderid" : "out.folder.get(0).id",
+            "out.foldername" : "out.folder.get(0).name"
+          }
+        },
+        "guid" : "177A609A25745EFB"
+      },
+      "visual" : {
+        "at" : { "x" : 80, "y" : 128 },
+        "labelOffset" : { "x" : -14, "y" : 35 }
+      },
+      "connect" : { "id" : "f6", "to" : "f2" }
+    }, {
+      "id" : "f1",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 512, "y" : 128 }
+      }
+    }, {
+      "id" : "f8",
+      "type" : "HtmlDialogEventStart",
+      "name" : "upload",
+      "config" : {
+        "guid" : "177A62B275D1C5F2"
+      },
+      "visual" : {
+        "at" : { "x" : 80, "y" : 256 },
+        "labelOffset" : { "x" : 10, "y" : 35 }
+      },
+      "connect" : { "id" : "f14", "to" : "f4" }
+    }, {
+      "id" : "f11",
+      "type" : "RestClientCall",
+      "name" : [
+        "POST document ",
+        "to \"Folder\""
+      ],
+      "config" : {
+        "clientId" : "f0cc7209-7cdd-4a5d-9dde-72257a4bf963",
+        "method" : "POST",
+        "queryParams" : {
+          "include" : "",
+          "fields" : "",
+          "autoRename" : ""
+        },
+        "statusErrorCode" : "ivy:error:rest:client",
+        "bodyObjectType" : "com.alfresco.api.explorer.NodeBodyCreate",
+        "bodyInputType" : "FORM",
+        "bodyForm" : {
+          "filedata" : "in.file.getJavaFile()"
+        },
+        "path" : "/nodes/{nodeId}/children",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.file" : "null"
+        },
+        "templateParams" : {
+          "nodeId" : "in.folderid"
+        },
+        "resultType" : "com.alfresco.api.explorer.NodeEntry",
+        "bodyMediaType" : "multipart/form-data"
+      },
+      "visual" : {
+        "at" : { "x" : 352, "y" : 256 },
+        "size" : { "width" : 128, "height" : 60 },
+        "color" : "NodeStyle4"
+      },
+      "connect" : { "id" : "f25", "to" : "f13" }
+    }, {
+      "id" : "f4",
+      "type" : "Alternative",
+      "name" : "valid document?",
+      "visual" : {
+        "at" : { "x" : 176, "y" : 256 },
+        "labelOffset" : { "x" : 10, "y" : -16 }
+      },
+      "connect" : [
+        { "id" : "f10", "to" : "f11", "condition" : "in.file.exists() && in.file.getName() !=\"null\"" },
+        { "id" : "f9", "to" : "f5", "via" : [ { "x" : 176, "y" : 320 } ] }
+      ]
+    }, {
+      "id" : "f12",
+      "type" : "ProcessAnnotation",
+      "name" : "GET chidren of Node \"Shared Folder\"",
+      "visual" : {
+        "at" : { "x" : 440, "y" : 48 },
+        "size" : { "width" : 208, "height" : 30 }
+      }
+    }, {
+      "id" : "f15",
+      "type" : "ProcessAnnotation",
+      "name" : "POST a document to \"Folder\" node",
+      "visual" : {
+        "at" : { "x" : 432, "y" : 336 },
+        "size" : { "width" : 208, "height" : 30 }
+      },
+      "connect" : { "id" : "f16", "to" : "f11" }
+    }, {
+      "id" : "f17",
+      "type" : "HtmlDialogEventStart",
+      "name" : "createFolder",
+      "config" : {
+        "guid" : "177A6A555BD816F7"
+      },
+      "visual" : {
+        "at" : { "x" : 80, "y" : 464 },
+        "labelOffset" : { "x" : 34, "y" : 35 }
+      },
+      "connect" : { "id" : "f23", "to" : "f29" }
+    }, {
+      "id" : "f18",
+      "type" : "HtmlDialogEventStart",
+      "name" : "addComment",
+      "config" : {
+        "guid" : "177A6A5D7CD9942A"
+      },
+      "visual" : {
+        "at" : { "x" : 80, "y" : 560 },
+        "labelOffset" : { "x" : 35, "y" : 35 }
+      },
+      "connect" : { "id" : "f19", "to" : "f21" }
+    }, {
+      "id" : "f21",
+      "type" : "RestClientCall",
+      "name" : [
+        "add a comment ",
+        "to folder"
+      ],
+      "config" : {
+        "bodyRaw" : [
+          "{",
+          "  \"content\": \"This is an ivy comment\"",
+          "}"
+        ],
+        "bodyObjectMapping" : {
+          "param.content" : "in.comment"
+        },
+        "clientId" : "f0cc7209-7cdd-4a5d-9dde-72257a4bf963",
+        "method" : "POST",
+        "queryParams" : {
+          "fields" : ""
+        },
+        "statusErrorCode" : "ivy:error:rest:client",
+        "bodyObjectType" : "com.alfresco.api.explorer.CommentBody",
+        "bodyInputType" : "ENTITY",
+        "bodyForm" : {
+          "content" : "\"My ivy comment\"",
+          "" : ""
+        },
+        "path" : "/nodes/{nodeId}/comments",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.newFoldername" : "\"\""
+        },
+        "templateParams" : {
+          "nodeId" : "in.folderid"
+        },
+        "resultType" : "com.alfresco.api.explorer.CommentEntry"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 560 },
+        "size" : { "width" : 128, "height" : 60 }
+      },
+      "connect" : { "id" : "f22", "to" : "f20" }
+    }, {
+      "id" : "f20",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 512, "y" : 560 }
+      }
+    }, {
+      "id" : "f29",
+      "type" : "RestClientCall",
+      "name" : [
+        "add a Folder ",
+        "to node \"Root\" "
+      ],
+      "config" : {
+        "bodyRaw" : [
+          "{",
+          "  \"name\":\"AxonIvy Documents\",",
+          "  \"nodeType\":\"cm:folder\"",
+          "}"
+        ],
+        "bodyObjectMapping" : {
+          "param.name" : "in.newFoldername",
+          "param.nodeType" : "\"cm:folder\""
+        },
+        "clientId" : "f0cc7209-7cdd-4a5d-9dde-72257a4bf963",
+        "method" : "POST",
+        "queryParams" : {
+          "autoRename" : "",
+          "include" : "",
+          "fields" : ""
+        },
+        "statusErrorCode" : "ivy:error:rest:client",
+        "bodyObjectType" : "com.alfresco.api.explorer.NodeBodyCreate",
+        "bodyInputType" : "ENTITY",
+        "responseCode" : "out.folder.add(new com.alfresco.connector.demo.Folder().setName(result.entry.name).setId(result.entry.id));",
+        "bodyForm" : {
+          "content" : "\"My ivy comment\"",
+          "" : ""
+        },
+        "path" : "/nodes/{nodeId}/children",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.folderid" : "result.entry.id",
+          "out.foldername" : "result.entry.name",
+          "out.newFoldername" : "\"\""
+        },
+        "templateParams" : {
+          "nodeId" : "\"-root-\""
+        },
+        "resultType" : "com.alfresco.api.explorer.NodeEntry"
+      },
+      "visual" : {
+        "at" : { "x" : 304, "y" : 464 },
+        "size" : { "width" : 128, "height" : 60 }
+      },
+      "connect" : { "id" : "f26", "to" : "f13", "via" : [ { "x" : 576, "y" : 464 } ] }
+    }, {
+      "id" : "f24",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 704, "y" : 256 }
+      }
+    }, {
+      "id" : "f5",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 240, "y" : 320 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "HtmlDialogMethodStart",
+      "name" : "openFolder(Folder)",
+      "config" : {
+        "callSignature" : "openFolder",
+        "input" : {
+          "params" : [
+            { "name" : "folder", "type" : "com.alfresco.connector.demo.Folder" }
+          ],
+          "map" : {
+            "out.folderid" : "param.folder.id",
+            "out.foldername" : "param.folder.name"
+          }
+        },
+        "guid" : "17802E80DFF17077"
+      },
+      "visual" : {
+        "at" : { "x" : 80, "y" : 640 },
+        "labelOffset" : { "x" : 33, "y" : 33 }
+      },
+      "connect" : { "id" : "f27", "to" : "f13", "via" : [ { "x" : 576, "y" : 640 } ] }
+    }, {
+      "id" : "f2",
+      "type" : "SubProcessCall",
+      "name" : [
+        "Demo/readDocuments",
+        "from \"shared\" Folder"
+      ],
+      "config" : {
+        "processCall" : "AlfrescoDemo/readDocuments:call(String)",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.connectionError" : "result.connectionError",
+            "out.documents" : "result.documents"
+          }
+        },
+        "call" : {
+          "params" : [
+            { "name" : "folderid", "type" : "String" }
+          ],
+          "map" : {
+            "param.folderid" : "\"-shared-\""
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 296, "y" : 128 },
+        "size" : { "width" : 144, "height" : 60 }
+      },
+      "connect" : { "id" : "f7", "to" : "f1" }
+    }, {
+      "id" : "f13",
+      "type" : "SubProcessCall",
+      "name" : [
+        "Demo/readDocuments",
+        "from Folder"
+      ],
+      "config" : {
+        "processCall" : "AlfrescoDemo/readDocuments:call(String)",
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.connectionError" : "result.connectionError",
+            "out.documents" : "result.documents"
+          }
+        },
+        "call" : {
+          "params" : [
+            { "name" : "folderid", "type" : "String" }
+          ],
+          "map" : {
+            "param.folderid" : "in.folderid"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 576, "y" : 256 },
+        "size" : { "width" : 144, "height" : 60 }
+      },
+      "connect" : { "id" : "f28", "to" : "f24" }
+    } ],
+  "layout" : {
+    "colors" : {
+      "NodeStyle4" : "rgb(0, 128, 0)"
+    }
+  }
+}
