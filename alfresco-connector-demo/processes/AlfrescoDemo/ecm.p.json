@@ -1,0 +1,51 @@
+{
+  "format" : "9.4.20",
+  "id" : "177A605C29E3AA51",
+  "data" : "com.alfresco.connector.Data",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "RequestStart",
+      "name" : "start.ivp",
+      "config" : {
+        "callSignature" : "start",
+        "outLink" : "start.ivp",
+        "startName" : "Upload Documents to Alfresco ECM",
+        "tags" : "demo"
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 128 },
+        "labelOffset" : { "x" : 12, "y" : 37 }
+      },
+      "connect" : { "id" : "f4", "to" : "f3" }
+    }, {
+      "id" : "f1",
+      "type" : "TaskEnd",
+      "visual" : {
+        "at" : { "x" : 352, "y" : 128 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "DialogCall",
+      "name" : [
+        "Upload Document",
+        "to Alfresco  ECM"
+      ],
+      "config" : {
+        "dialogId" : "com.alfresco.connector.demo.ecm",
+        "startMethod" : "start()"
+      },
+      "visual" : {
+        "at" : { "x" : 224, "y" : 128 },
+        "size" : { "width" : 128, "height" : 60 }
+      },
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f5",
+      "type" : "ProcessAnnotation",
+      "name" : "A simple dialog to upload documents to alfresco ECM",
+      "visual" : {
+        "at" : { "x" : 224, "y" : 48 },
+        "size" : { "width" : 304, "height" : 30 }
+      }
+    } ]
+}

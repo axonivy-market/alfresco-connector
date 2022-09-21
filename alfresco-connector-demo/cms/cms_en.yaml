@@ -1,0 +1,27 @@
+ProcessPages:
+  SampleCall:
+    Show_the_response:
+      Caption: REST Response
+      Panel1:
+        Text1: |
+          <P>
+          filepath:
+          </P>
+          <P>
+          <%=ivy.html.get("in.filepath")%>
+          </P>
+          <P>
+          response:
+          </P>
+          <P>
+          <%=ivy.html.get("in.result")%>
+          </P>
+Project:
+  FooterText: |
+    <P>
+    Powered by <%=ch.ivyteam.ivy.Advisor.getAdvisor().getApplicationName()%> <%=ch.ivyteam.ivy.Advisor.getAdvisor().getVersion()%>. Copyright © 2001 - <%=(new Date()).getYear().toString()%> <A href="http://www.ivyteam.ch">ivyTeam</A>
+    </P>
+  HeaderText: |-
+    <H1>
+    My Project
+    </H1>
