@@ -2,19 +2,19 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.axonivy.connector.alfresco</groupId>
   <artifactId>alfresco-connector-test</artifactId>
-  <version>9.3.2-SNAPSHOT</version>
+  <version>9.4.0</version>
   <packaging>iar</packaging>
   <dependencies>
     <dependency>
       <groupId>com.axonivy.ivy.test</groupId>
       <artifactId>unit-tester</artifactId>
-      <version>9.3.0</version>
+      <version>9.4.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>com.axonivy.ivy.webtest</groupId>
       <artifactId>web-tester</artifactId>
-      <version>9.3.0</version>
+      <version>9.4.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
