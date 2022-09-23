@@ -1,0 +1,110 @@
+{
+  "format" : "9.4.20",
+  "id" : "17811D7894B7C803",
+  "data" : "com.alfresco.connector.demo.ReadDocumentsData",
+  "kind" : "CALLABLE_SUB",
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "CallSubStart",
+      "name" : "call(folderid)",
+      "config" : {
+        "callSignature" : "call",
+        "input" : {
+          "params" : [
+            { "name" : "folderid", "type" : "String" }
+          ],
+          "map" : {
+            "out.folderid" : "param.folderid"
+          }
+        },
+        "result" : {
+          "params" : [
+            { "name" : "connectionError", "type" : "String" },
+            { "name" : "documents", "type" : "List<com.alfresco.api.explorer.NodeChildAssociationEntry>" }
+          ],
+          "map" : {
+            "result.connectionError" : "in.connectionError",
+            "result.documents" : "in.documents"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 96, "y" : 112 },
+        "labelOffset" : { "x" : 18, "y" : 37 }
+      },
+      "connect" : { "id" : "f3", "to" : "f6" }
+    }, {
+      "id" : "f1",
+      "type" : "CallSubEnd",
+      "visual" : {
+        "at" : { "x" : 384, "y" : 112 }
+      }
+    }, {
+      "id" : "f6",
+      "type" : "RestClientCall",
+      "name" : [
+        "Read Documents",
+        "of  Folder"
+      ],
+      "config" : {
+        "path" : "/nodes/{nodeId}/children",
+        "clientId" : "f0cc7209-7cdd-4a5d-9dde-72257a4bf963",
+        "clientErrorCode" : "ivy:error:rest:client",
+        "queryParams" : {
+          "skipCount" : "",
+          "maxItems" : "",
+          "orderBy" : "",
+          "where" : "",
+          "include" : "",
+          "relativePath" : "",
+          "includeSource" : "",
+          "fields" : ""
+        },
+        "statusErrorCode" : "ivy:error:rest:client",
+        "responseMapping" : {
+          "out.documents" : "result.list.entries"
+        },
+        "templateParams" : {
+          "nodeId" : "in.folderid"
+        },
+        "resultType" : "com.alfresco.api.explorer.NodeChildAssociationPaging"
+      },
+      "visual" : {
+        "at" : { "x" : 232, "y" : 112 },
+        "size" : { "width" : 128, "height" : 60 },
+        "color" : "NodeStyle4"
+      },
+      "boundaries" : [ {
+          "id" : "f31",
+          "type" : "ErrorBoundaryEvent",
+          "name" : "connection error",
+          "config" : {
+            "output" : {
+              "map" : {
+                "out" : "in",
+                "out.connectionError" : "\"Connection failed. Check the connection properties of the Alfresco ECM Rest client\""
+              }
+            }
+          },
+          "visual" : {
+            "at" : { "x" : 280, "y" : 144 },
+            "labelOffset" : { "x" : 0, "y" : 15 }
+          },
+          "connect" : { "id" : "f4", "to" : "f1", "via" : [ { "x" : 384, "y" : 144 } ] }
+        } ],
+      "connect" : { "id" : "f2", "to" : "f1" }
+    }, {
+      "id" : "f5",
+      "type" : "ProcessAnnotation",
+      "name" : "Alfresco ECM: Read document nodes from folder",
+      "visual" : {
+        "at" : { "x" : 216, "y" : 48 },
+        "size" : { "width" : 288, "height" : 30 }
+      }
+    } ],
+  "layout" : {
+    "colors" : {
+      "NodeStyle4" : "rgb(0, 128, 0)"
+    }
+  }
+}
