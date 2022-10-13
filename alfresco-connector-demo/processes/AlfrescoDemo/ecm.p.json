@@ -1,7 +1,9 @@
 {
-  "format" : "9.4.20",
+  "format" : "10.0.0",
   "id" : "177A605C29E3AA51",
-  "data" : "com.alfresco.connector.Data",
+  "config" : {
+    "data" : "com.alfresco.connector.Data"
+  },
   "elements" : [ {
       "id" : "f0",
       "type" : "RequestStart",
