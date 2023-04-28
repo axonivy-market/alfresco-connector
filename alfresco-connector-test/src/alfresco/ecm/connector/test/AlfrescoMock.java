@@ -15,38 +15,34 @@ import org.apache.commons.io.IOUtils;
 import io.swagger.v3.oas.annotations.Hidden;
 
 /**
- * Mocks parts of the Alfresco ECM Rest API which has been used in the AlfrescoEcmDemo
- * <p>docs<br/>https://api-explorer.alfresco.com/api-explorer/definitions/alfresco-core.json</p>
+ * Mocks parts of the Alfresco ECM Rest API which has been used in the
+ * AlfrescoEcmDemo
+ * <p>
+ * docs<br/>
+ * https://api-explorer.alfresco.com/api-explorer/definitions/alfresco-core.json
+ * </p>
  */
 @Path(AlfrescoMock.PATH_SUFFIX)
 @PermitAll
 @Hidden
-public class AlfrescoMock
-{
+public class AlfrescoMock {
+
   static final String PATH_SUFFIX = "ecmMock";
-
   // URI where this mock can be reached: to be referenced in tests that use it!
-  @SuppressWarnings("restriction")
-  public static final String URI = "{"+ch.ivyteam.ivy.rest.client.config.IvyDefaultJaxRsTemplates.APP_URL+"}/api/"+PATH_SUFFIX;
-
+  public static final String URI = "{ivy.app.baseurl}/api/" + PATH_SUFFIX;
 
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   @Path("nodes/-shared-/children")
-  public String getRootFolderNodes()
-  {
+  public String getRootFolderNodes() {
     return load("json/rootfolder.json");
   }
 
-  private static String load(String path)
-  {
-    try(InputStream is = AlfrescoMock.class.getResourceAsStream(path))
-    {
+  private static String load(String path) {
+    try (InputStream is = AlfrescoMock.class.getResourceAsStream(path)) {
       return IOUtils.toString(is, StandardCharsets.UTF_8);
-    }
-    catch (IOException ex)
-    {
-      throw new RuntimeException("Failed to read resource: "+path);
+    } catch (IOException ex) {
+      throw new RuntimeException("Failed to read resource: " + path);
     }
   }
 }
