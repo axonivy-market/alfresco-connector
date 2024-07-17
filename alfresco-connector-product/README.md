@@ -13,10 +13,15 @@ Shows how to create folders and store documents.
 ![demo-dialog](images/alfrescoConnectorDemo.png)
 ![demo-connector](images/alfrescoDemoProcess.png)
 
+If you have used the docker installation as described in chapter [Setup](https://github.com/axonivy-market/alfresco-connector/edit/master/alfresco-connector-product/README.md#setup) you you can test your file upload with http://localhost:8080/content-app/#/personal-files - the file should be placed on folder "shared":
+
+![image](https://github.com/user-attachments/assets/d96e642c-3880-4aa0-92da-956308a4b2fa)
+
+
 
 ## Setup
 
-The connector is preconfigured for the Community Edition for Docker running on localhost port 8080. See: https://docs.alfresco.com/content-services/community/install/containers/docker-compose/
+The connector is preconfigured for the Community Edition for Docker running on localhost port 8080, see: https://docs.alfresco.com/content-services/community/install/containers/docker-compose/.
 You may adjust the Alfresco Rest client to access your Alfresco installation.
 
 ![rest-client-config](images/alfrescoRESTClient_Config.png)
