@@ -1,9 +1,11 @@
-# Alfreso Enterprise Content Management Connector
+# Alfreso Plattform ECM Connector
 
-Axon Ivy’s [Alfresco Content Services](https://www.alfresco.com/de/ecm-software) connector helps you to accelerate process automation initiatives by accessing content wherever and however you work. Alfresco Content Services includes full-featured enterprise content management system (ECM) capabilities. This connector:
+Axon Ivy’s [Alfresco Plattform ECM](https://www.alfresco.com/de/ecm-software) connector helps you to accelerate process automation initiatives by accessing enterprise content wherever and however you work. Alfresco Plattform includes full-featured enterprise content management system (ECM) capabilities. 
+
+This connector:
 
 - Is based on REST webservice technologies.
-- Provides access to the core features of Alfresco Content Services. e.g. create folders and to store documents.
+- Provides access to the core features of Alfresco Plattform, e.g. create folders or store documents.
 - Supports you with a demo implementation to reduce your integration effort.
 
 ## Demo
