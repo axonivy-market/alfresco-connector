@@ -15,9 +15,7 @@ Shows how to create folders and store documents.
 
 If you have used the docker installation as described in chapter [Setup](https://market.axonivy.com/alfrescoecm#tab-setup) you you can test your file upload with http://localhost:8080/content-app/#/personal-files - the file should be placed on folder "shared":
 
-![image](https://github.com/user-attachments/assets/d96e642c-3880-4aa0-92da-956308a4b2fa)
-
-
+![demo-alfrescoview](images/alfrescoView.png)
 
 ## Setup
 
