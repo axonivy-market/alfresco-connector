@@ -16,7 +16,7 @@ import ch.ivyteam.ivy.security.ISession;
 /**
  * Rest Service functionality is mocked out here: {@link AlfrescoMock}
  */
-@IvyProcessTest
+@IvyProcessTest(enableWebServer = true)
 public class TestAlfrescoECM {
 
   private static final BpmProcess CALL_READ_DOCUMENTS = BpmProcess.name("readDocuments");
