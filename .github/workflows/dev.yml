@@ -9,5 +9,4 @@ on:
 jobs:
   build:
     uses: axonivy-market/github-workflows/.github/workflows/dev.yml@v4
-    with:
-      mvnArgs: '-Dmaven.test.failure.ignore=true'
+
