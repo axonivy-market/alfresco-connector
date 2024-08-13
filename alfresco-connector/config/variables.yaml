@@ -7,4 +7,4 @@ Variables:
     EndpointUri: http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1
     # The password for "Alfresco Content Service".
     # [password]
-    Password: admin
+    Password: ""
