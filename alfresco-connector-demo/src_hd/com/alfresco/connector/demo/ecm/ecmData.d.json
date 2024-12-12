@@ -5,35 +5,27 @@
   "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "documents",
-    "type" : "List<com.alfresco.api.explorer.NodeChildAssociationEntry>",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "List<com.alfresco.api.explorer.NodeChildAssociationEntry>"
   }, {
     "name" : "file",
-    "type" : "File",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "File"
   }, {
     "name" : "folderid",
-    "type" : "String",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "String"
   }, {
     "name" : "connectionError",
-    "type" : "String",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "String"
   }, {
     "name" : "comment",
-    "type" : "String",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "String"
   }, {
     "name" : "foldername",
-    "type" : "String",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "String"
   }, {
     "name" : "newFoldername",
-    "type" : "String",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "String"
   }, {
     "name" : "folder",
-    "type" : "List<com.alfresco.connector.demo.Folder>",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "List<com.alfresco.connector.demo.Folder>"
   } ]
 }

@@ -5,12 +5,10 @@
   "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "connectionError",
-    "type" : "String",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "String"
   }, {
     "name" : "documents",
-    "type" : "List<com.alfresco.api.explorer.NodeChildAssociationEntry>",
-    "modifiers" : [ "PERSISTENT" ]
+    "type" : "List<com.alfresco.api.explorer.NodeChildAssociationEntry>"
   }, {
     "name" : "folderid",
     "type" : "String",
