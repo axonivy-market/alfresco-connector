@@ -12,6 +12,7 @@
     <module>alfresco-connector-test</module>
     <module>alfresco-connector-product</module>
     <module>alfrescoecm-demo-app</module>
+    <module>alfrescoecm-demo-app</module>
   </modules>
   <scm>
     <developerConnection>scm:git:https://github.com/axonivy-market/alfresco-connector.git</developerConnection>
