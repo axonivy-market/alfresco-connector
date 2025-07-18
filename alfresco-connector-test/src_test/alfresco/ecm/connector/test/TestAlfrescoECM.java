@@ -24,46 +24,54 @@ import ch.ivyteam.ivy.scripting.objects.List;
 import ch.ivyteam.ivy.security.ISession;
 
 @Testcontainers
-@IvyProcessTest(enableWebServer = true)
+@IvyProcessTest
 public class TestAlfrescoECM {
-  private static final String FINISHED_SETUP_LOG_TEXT_REGEX = ".*readyProbe: Success - Tested*";
+  private static final String FINISHED_SETUP_LOG_TEXT_REGEX = ".*readyProbe: Success - Tested.*";
+  private static final String GET_DOCUMENTS_START_NAME = "getDocumentsFromFolder(String)";
+  private static final String POST_DOCUMENTS_START_NAME = "postDocumentToFolder(String,File)";
+  private static final String ADD_NEW_NODE_START_NAME = "addNewNodeFolder(String)";
+  private static final String SHARE_FOLDER_NAME = "-share-";
+  private static final String DOCKER_COMPPOSE_FILE_PATH = "../alfresco-connector-demo/docker/compose.yaml";
+
   private static final BpmProcess CALL_READ_DOCUMENTS = BpmProcess.path("Alfresco/Documents");
 
   @BeforeEach
   void setup(AppFixture fixture) {
     fixture.config("RestClients.Alfresco.Url",
         "http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1");
+    // Default credential value from alfresco docker
     fixture.var("Alfresco.Username", "admin");
     fixture.var("Alfresco.Password", "admin");
   }
 
   /**
-   * This Docker Compose file was cloned from Alfresco's official GitHub repository:
+   * This Docker Compose file was cloned from Alfresco's official GitHub
+   * repository:
    * https://github.com/Alfresco/acs-deployment/blob/master/docker-compose/community-compose.yaml
    *
-   * Please ensure that you regularly update this file to align with the latest version
-   * from the upstream repository.
+   * Please ensure that you regularly update this file to align with the latest
+   * version from the upstream repository.
    */
   @SuppressWarnings("resource")
   @Container
-  public final ComposeContainer db2 = new ComposeContainer(
-      new java.io.File("../alfresco-connector-demo/docker/compose.yaml")).withExposedService("alfresco", 8080)
-      .waitingFor("alfresco", Wait.forLogMessage(FINISHED_SETUP_LOG_TEXT_REGEX, 1).withStartupTimeout(Duration.ofMinutes(10)));
+  public final ComposeContainer db2 = new ComposeContainer(new java.io.File(DOCKER_COMPPOSE_FILE_PATH))
+      .withExposedService("alfresco", 8080).waitingFor("alfresco",
+          Wait.forLogMessage(FINISHED_SETUP_LOG_TEXT_REGEX, 1).withStartupTimeout(Duration.ofMinutes(2)));
 
   @Test
   @SuppressWarnings("unchecked")
   public void callReadDocuments(BpmClient bpmClient, ISession session) throws IOException {
     SubProcessCallResult result = bpmClient.start()
-        .subProcess(CALL_READ_DOCUMENTS.elementName("getDocumentsFromFolder(String)")).as().session(session)
-        .execute("-shared-").subResult();
+      .subProcess(CALL_READ_DOCUMENTS.elementName(GET_DOCUMENTS_START_NAME)).as().session(session)
+      .execute(SHARE_FOLDER_NAME).subResult();
     assertThat(result.param("documents", List.class)).isEmpty();
-    bpmClient.start().subProcess(CALL_READ_DOCUMENTS.elementName("postDocumentToFolder(String,File)")).as()
-        .session(session).execute("-shared-", AlfrescoConnectorTestUtils.exportFromCMS("/Files/test", "yaml"));
-    result = bpmClient.start().subProcess(CALL_READ_DOCUMENTS.elementName("getDocumentsFromFolder(String)")).as()
-        .session(session).execute("-shared-").subResult();
+    bpmClient.start().subProcess(CALL_READ_DOCUMENTS.elementName(POST_DOCUMENTS_START_NAME)).as().session(session)
+      .execute(SHARE_FOLDER_NAME, AlfrescoConnectorTestUtils.exportFromCMS("/Files/test", "yaml"));
+    result = bpmClient.start().subProcess(CALL_READ_DOCUMENTS.elementName(GET_DOCUMENTS_START_NAME)).as()
+      .session(session).execute(SHARE_FOLDER_NAME).subResult();
     assertThat(result.param("documents", List.class)).isNotEmpty();
-    result = bpmClient.start().subProcess(CALL_READ_DOCUMENTS.elementName("addNewNodeFolder(String)")).as()
-        .session(session).execute("test").subResult();
+    result = bpmClient.start().subProcess(CALL_READ_DOCUMENTS.elementName(ADD_NEW_NODE_START_NAME)).as()
+      .session(session).execute("test").subResult();
     assertThat(result.param("nodeEntry", NodeEntry.class)).isNotNull();
   }
 }
