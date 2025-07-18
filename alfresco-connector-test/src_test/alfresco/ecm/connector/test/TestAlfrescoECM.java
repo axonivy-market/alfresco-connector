@@ -30,7 +30,7 @@ public class TestAlfrescoECM {
   private static final String GET_DOCUMENTS_START_NAME = "getDocumentsFromFolder(String)";
   private static final String POST_DOCUMENTS_START_NAME = "postDocumentToFolder(String,File)";
   private static final String ADD_NEW_NODE_START_NAME = "addNewNodeFolder(String)";
-  private static final String SHARE_FOLDER_NAME = "-share-";
+  private static final String SHARE_FOLDER_NAME = "-shared-";
   private static final String DOCKER_COMPPOSE_FILE_PATH = "../alfresco-connector-demo/docker/compose.yaml";
 
   private static final BpmProcess CALL_READ_DOCUMENTS = BpmProcess.path("Alfresco/Documents");
