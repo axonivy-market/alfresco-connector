@@ -37,8 +37,6 @@ public class TestAlfrescoECM {
 
   @BeforeEach
   void setup(AppFixture fixture) {
-    fixture.config("RestClients.Alfresco.Url",
-        "http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1");
     // Default credential value from alfresco docker
     fixture.var("Alfresco.Username", "admin");
     fixture.var("Alfresco.Password", "admin");
