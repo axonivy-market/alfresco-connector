@@ -7,6 +7,13 @@
 # More details here:
 # https://www.oracle.com/technetwork/java/javase/10-relnote-issues-4108729.html
 #
+#
+# This Docker Compose file was cloned from Alfresco's official GitHub repository (without additional
+# modifying default credential of keystore) and be used for testing/demo purpose only:
+# https://github.com/Alfresco/acs-deployment/blob/master/docker-compose/community-compose.yaml
+# Please ensure that you regularly update this file to align with the latest version from
+# the upstream repository.
+#
 services:
   alfresco:
     image: docker.io/alfresco/alfresco-content-repository-community:25.1.0
