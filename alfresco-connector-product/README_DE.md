@@ -1,40 +1,40 @@
-# Alfreso Plattform ECM Anschluss
+# Alfreso Plattform ECM Konnektor
 
-#Axon Efeus [Draußen Plattform ECM](https://www.alfresco.com/de/ecm-software)
-Anschluss hilft du zu beschleunigen Arbeitsgang Automatisierung Initiativen
-zugreifen mal Unternehmen #einverstanden #wo immer und indes arbeitest du.
-Draußen Plattform schließt ein voll-geboten Unternehmen #einverstanden
-Management System (ECM) Fähigkeiten.
+Der [Alfresco Plattform ECM](https://www.alfresco.com/de/ecm-software)-Konnektor
+von Axon Ivy hilft Ihnen dabei, Initiativen zur Prozessautomatisierung zu
+beschleunigen, indem Sie überall und unabhängig von Ihrer Arbeitsweise auf
+Unternehmensinhalte zugreifen können. Die Alfresco Plattform umfasst alle
+Funktionen eines Enterprise-Content-Management-Systems (ECM).
 
-Dieser Anschluss:
+Dieser Konnektor:
 
-- Ist gegründet auf RUHEN webservice Technologien.
-- Versieht Zugang zu die Innenteil Charakterzüge von Draußen Plattform, #z.B.
-  schaffen Ordner oder lagern Dokumente.
-- Unterstützt du mit eine Demo Ausführung zu heruntersetzen eure Integration
-  Anstrengung.
+- Basiert auf REST-Webservice-Technologien.
+- Bietet Zugriff auf die Kernfunktionen der Alfresco-Plattform, z. B. das
+  Erstellen von Ordnern oder das Speichern von Dokumenten.
+- Unterstützt Sie mit einer Demo-Implementierung, um Ihren Integrationsaufwand
+  zu reduzieren.
 
 ## Demo
 
-Vorstellungen zu schaffen wie Ordner und lagern Dokumente.
+Zeigt, wie man Ordner erstellt und Dokumente speichert.
 
-![Demo-Zwiegespräch](images/alfrescoConnectorDemo.png)
-![Demo-Anschluss](images/alfrescoDemoProcess.png)
+![demo-dialog](images/alfrescoConnectorDemo.png)
+![demo-connector](images/alfrescoDemoProcess.png)
 
-Ob dir hast die Hafenarbeiter Installation benutzt da beschrieben in Kapitel
-[Einrichtung](https://market.axonivy.com/alfrescoecm#tab-setup) du du kannst
-eure Datei #Hochladen mit http
-testen://localhost:8080/#einverstanden-#App/#/persönlich-Dateien - die Datei
-sollte sein plaziert auf Ordner "geteilt":
+Wenn Sie die Docker-Installation wie in Kapitel
+[Setup](https://market.axonivy.com/alfrescoecm#tab-setup) beschrieben verwendet
+haben, können Sie Ihr Datei-Hochladen mit
+http://localhost:8080/content-app/#/personal-files testen – die Datei sollte im
+Ordner „shared” abgelegt werden:
 
-![Demo-alfrescoview](images/alfrescoView.png)
+![demo-alfrescoview](images/alfrescoView.png)
 
 ## Einrichtung
 
-Der Anschluss ist preconfigured für die #Gemeinde- Edition für Hafenarbeiter
-rennend weiter localhost #backbordseitig 8080, sieh:
-Https://docs.Draußen.com/#Einverstanden-Bedienungen/Gemeinsamkeit/installiert/Behälter/Hafenarbeiter-abfassen/.
-Du dürfen anpassen das Draußen Ruhst Kunden zu zugreifen eure Draußen
-Installation.
+Der Konnektor ist für die Community Edition für Docker vorkonfiguriert, die auf
+dem lokalen Host unter Port 8080 läuft, siehe:
+https://docs.alfresco.com/content-services/community/install/containers/docker-compose/.
+Sie können den Alfresco Rest Client anpassen, um auf Ihre Alfresco-Installation
+zuzugreifen.
 
-![Rest-Kunde-config](images/alfrescoRESTClient_Config.png)
+![rest-client-config](images/alfrescoRESTClient_Config.png)
