@@ -1,34 +1,37 @@
 {
-  "$schema" : "https://json-schema.axonivy.com/data-class/13.1.0/data-class.json",
+  "$schema" : "https://json-schema.axonivy.com/14.0-dev/project/data-class.json",
   "simpleName" : "DocumentsData",
   "namespace" : "com.alfresco.connector",
-  "isBusinessCaseData" : false,
   "fields" : [ {
     "name" : "connectionError",
-    "type" : "String"
+    "modifiers" : [ ]
   }, {
     "name" : "documents",
-    "type" : "List<com.alfresco.api.explorer.NodeChildAssociationEntry>"
+    "type" : "List<com.alfresco.api.explorer.NodeChildAssociationEntry>",
+    "modifiers" : [ ]
   }, {
     "name" : "folderId",
-    "type" : "String"
+    "modifiers" : [ ]
   }, {
     "name" : "file",
-    "type" : "java.io.File"
+    "type" : "java.io.File",
+    "modifiers" : [ ]
   }, {
     "name" : "nodeEntry",
-    "type" : "com.alfresco.api.explorer.NodeEntry"
+    "type" : "com.alfresco.api.explorer.NodeEntry",
+    "modifiers" : [ ]
   }, {
     "name" : "comment",
-    "type" : "String"
+    "modifiers" : [ ]
   }, {
     "name" : "newFolderName",
-    "type" : "String"
+    "modifiers" : [ ]
   }, {
     "name" : "folderName",
-    "type" : "String"
+    "modifiers" : [ ]
   }, {
     "name" : "commentEntry",
-    "type" : "com.alfresco.api.explorer.CommentEntry"
+    "type" : "com.alfresco.api.explorer.CommentEntry",
+    "modifiers" : [ ]
   } ]
 }

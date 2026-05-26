@@ -1,15 +1,15 @@
-# yaml-language-server: $schema=https://json-schema.axonivy.com/app/11.3.1/rest-clients.json
+# yaml-language-server: $schema=https://json-schema.axonivy.com/14.0-dev/config/rest-clients-1.json
 RestClients:
   #Preconfigured for the Docker Based Community Edition running on localhost port 8080
   #Admin Url: https//localhost:8080/share
   Alfresco:
-    UUID: f0cc7209-7cdd-4a5d-9dde-72257a4bf963
+    Name: Alfresco
     Url: http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1
     Icon: res:/webContent/icons/alfresco-logo.png
     Features:
-    - ch.ivyteam.ivy.rest.client.mapper.JsonFeature
-    - ch.ivyteam.ivy.rest.client.authentication.HttpBasicAuthenticationFeature
-    - org.glassfish.jersey.media.multipart.MultiPartFeature
+      - ch.ivyteam.ivy.rest.client.mapper.JsonFeature
+      - ch.ivyteam.ivy.rest.client.authentication.HttpBasicAuthenticationFeature
+      - org.glassfish.jersey.media.multipart.MultiPartFeature
     Properties:
       JSON.Deserialization.FAIL_ON_UNKNOWN_PROPERTIES: 'false'
       username: ${ivy.var.Alfresco.Username}
@@ -17,3 +17,4 @@ RestClients:
     OpenAPI:
       SpecUrl: https://api-explorer.alfresco.com/api-explorer/definitions/alfresco-core.json
       Namespace: com.alfresco.api.explorer
+    LegacyUUID: f0cc7209-7cdd-4a5d-9dde-72257a4bf963
