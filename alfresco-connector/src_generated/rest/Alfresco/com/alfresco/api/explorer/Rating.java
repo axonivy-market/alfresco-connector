@@ -23,7 +23,7 @@ import java.time.OffsetDateTime;
 /**
  * A person can rate an item of content by liking it. They can also remove their like of an item of content. API methods exist to get a list of ratings and to add a new rating. 
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-22T12:37:25.271534100+02:00[Europe/Berlin]")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-22T12:37:25.271534100+02:00[Europe/Berlin]")
 public class Rating {
   @JsonProperty("id")
   private String id = null;
