@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * A network is the group of users and sites that belong to an organization. Networks are organized by email domain. When a user signs up for an Alfresco account , their email domain becomes their Home Network. 
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-22T12:37:25.271534100+02:00[Europe/Berlin]")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-22T12:37:25.271534100+02:00[Europe/Berlin]")
 public class PersonNetwork {
   @JsonProperty("id")
   private String id = null;

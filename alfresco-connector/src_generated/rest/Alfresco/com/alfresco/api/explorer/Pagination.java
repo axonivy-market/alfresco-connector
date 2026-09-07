@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Pagination
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-22T12:37:25.271534100+02:00[Europe/Berlin]")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2021-06-22T12:37:25.271534100+02:00[Europe/Berlin]")
 public class Pagination {
   @JsonProperty("count")
   private Long count = null;
