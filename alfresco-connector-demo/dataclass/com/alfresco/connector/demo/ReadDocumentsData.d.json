@@ -1,0 +1,15 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/14.0/project/data-class.json",
+  "simpleName" : "ReadDocumentsData",
+  "namespace" : "com.alfresco.connector.demo",
+  "fields" : [ {
+    "name" : "connectionError",
+    "modifiers" : [ ]
+  }, {
+    "name" : "documents",
+    "type" : "List<com.alfresco.api.explorer.NodeChildAssociationEntry>",
+    "modifiers" : [ ]
+  }, {
+    "name" : "folderid"
+  } ]
+}

@@ -1,0 +1,307 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/14.0/project/process.json",
+  "id" : "177A609A24FD435F",
+  "kind" : "HTML_DIALOG",
+  "config" : {
+    "data" : "com.alfresco.connector.demo.ecm.ecmData"
+  },
+  "elements" : [ {
+      "id" : "f0",
+      "type" : "HtmlDialogStart",
+      "name" : "start()",
+      "config" : {
+        "signature" : "start",
+        "input" : {
+          "map" : {
+            "out.connectionError" : "null",
+            "out.folder" : "[new com.alfresco.connector.demo.Folder().setName(\"Shared Folder\").setId(\"-shared-\")]",
+            "out.folderid" : "out.folder.get(0).id",
+            "out.foldername" : "out.folder.get(0).name"
+          }
+        },
+        "guid" : "177A609A25745EFB"
+      },
+      "visual" : {
+        "at" : { "x" : 80, "y" : 128 },
+        "labelOffset" : { "x" : -14, "y" : 35 }
+      },
+      "connect" : [
+        { "id" : "f6", "to" : "f2" }
+      ]
+    }, {
+      "id" : "f1",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 512, "y" : 128 }
+      }
+    }, {
+      "id" : "f8",
+      "type" : "HtmlDialogEventStart",
+      "name" : "upload",
+      "config" : {
+        "guid" : "177A62B275D1C5F2"
+      },
+      "visual" : {
+        "at" : { "x" : 80, "y" : 256 },
+        "labelOffset" : { "x" : 10, "y" : 35 }
+      },
+      "connect" : [
+        { "id" : "f14", "to" : "f4" }
+      ]
+    }, {
+      "id" : "f4",
+      "type" : "Alternative",
+      "name" : "valid document?",
+      "config" : {
+        "conditions" : {
+          "f10" : "in.file.exists() && in.file.getName() !=\"null\""
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 176, "y" : 256 },
+        "labelOffset" : { "x" : 10, "y" : -16 }
+      },
+      "connect" : [
+        { "id" : "f10", "to" : "f30" },
+        { "id" : "f9", "to" : "f5", "via" : [ { "x" : 176, "y" : 320 } ] }
+      ]
+    }, {
+      "id" : "f12",
+      "type" : "ProcessAnnotation",
+      "name" : "GET chidren of Node \"Shared Folder\"",
+      "visual" : {
+        "at" : { "x" : 440, "y" : 48 },
+        "size" : { "width" : 208, "height" : 30 }
+      }
+    }, {
+      "id" : "f15",
+      "type" : "ProcessAnnotation",
+      "name" : "POST a document to \"Folder\" node",
+      "visual" : {
+        "at" : { "x" : 416, "y" : 352 },
+        "size" : { "width" : 208, "height" : 30 }
+      },
+      "connect" : [
+        { "id" : "f16", "to" : "f30" }
+      ]
+    }, {
+      "id" : "f17",
+      "type" : "HtmlDialogEventStart",
+      "name" : "createFolder",
+      "config" : {
+        "guid" : "177A6A555BD816F7"
+      },
+      "visual" : {
+        "at" : { "x" : 80, "y" : 464 },
+        "labelOffset" : { "x" : 34, "y" : 35 }
+      },
+      "connect" : [
+        { "id" : "f23", "to" : "f32" }
+      ]
+    }, {
+      "id" : "f18",
+      "type" : "HtmlDialogEventStart",
+      "name" : "addComment",
+      "config" : {
+        "guid" : "177A6A5D7CD9942A"
+      },
+      "visual" : {
+        "at" : { "x" : 80, "y" : 560 },
+        "labelOffset" : { "x" : 35, "y" : 35 }
+      },
+      "connect" : [
+        { "id" : "f19", "to" : "f34" }
+      ]
+    }, {
+      "id" : "f20",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 576, "y" : 560 }
+      }
+    }, {
+      "id" : "f24",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 880, "y" : 256 }
+      }
+    }, {
+      "id" : "f5",
+      "type" : "HtmlDialogEnd",
+      "visual" : {
+        "at" : { "x" : 240, "y" : 320 }
+      }
+    }, {
+      "id" : "f3",
+      "type" : "HtmlDialogMethodStart",
+      "name" : "openFolder(Folder)",
+      "config" : {
+        "signature" : "openFolder",
+        "input" : {
+          "params" : [
+            { "name" : "folder", "type" : "com.alfresco.connector.demo.Folder", "desc" : "" }
+          ],
+          "map" : {
+            "out.folderid" : "param.folder.id",
+            "out.foldername" : "param.folder.name"
+          }
+        },
+        "guid" : "17802E80DFF17077"
+      },
+      "visual" : {
+        "at" : { "x" : 80, "y" : 640 },
+        "labelOffset" : { "x" : 33 }
+      },
+      "connect" : [
+        { "id" : "f27", "to" : "f13", "via" : [ { "x" : 752, "y" : 640 } ] }
+      ]
+    }, {
+      "id" : "f2",
+      "type" : "SubProcessCall",
+      "name" : [
+        "Demo/readDocuments",
+        "from \"shared\" Folder"
+      ],
+      "config" : {
+        "processCall" : "Alfresco/Documents:getDocumentsFromFolder(String)",
+        "call" : {
+          "map" : {
+            "param.folderId" : "\"-shared-\""
+          }
+        },
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.connectionError" : "result.connectionError",
+            "out.documents" : "result.documents"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 296, "y" : 128 },
+        "size" : { "width" : 144 }
+      },
+      "connect" : [
+        { "id" : "f7", "to" : "f1" }
+      ]
+    }, {
+      "id" : "f13",
+      "type" : "SubProcessCall",
+      "name" : [
+        "Demo/readDocuments",
+        "from Folder"
+      ],
+      "config" : {
+        "processCall" : "Alfresco/Documents:getDocumentsFromFolder(String)",
+        "call" : {
+          "map" : {
+            "param.folderId" : "in.folderid"
+          }
+        },
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.connectionError" : "result.connectionError",
+            "out.documents" : "result.documents"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 752, "y" : 256 },
+        "size" : { "width" : 144 }
+      },
+      "connect" : [
+        { "id" : "f28", "to" : "f24" }
+      ]
+    }, {
+      "id" : "f30",
+      "type" : "SubProcessCall",
+      "name" : [
+        "POST document ",
+        "to \"Folder\""
+      ],
+      "config" : {
+        "processCall" : "Alfresco/Documents:postDocumentToFolder(String,java.io.File)",
+        "call" : {
+          "map" : {
+            "param.folderId" : "in.folderid",
+            "param.file" : "in.file.getJavaFile()"
+          }
+        },
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.file" : "null"
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 416, "y" : 256 }
+      },
+      "connect" : [
+        { "id" : "f31", "to" : "f13", "color" : "default" }
+      ]
+    }, {
+      "id" : "f32",
+      "type" : "SubProcessCall",
+      "name" : [
+        "add a Folder ",
+        "to node \"Root\" "
+      ],
+      "config" : {
+        "processCall" : "Alfresco/Documents:addNewNodeFolder(String)",
+        "call" : {
+          "map" : {
+            "param.newFolderName" : "in.newFoldername"
+          }
+        },
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.folderid" : "result.nodeEntry.entry.id",
+            "out.foldername" : "result.nodeEntry.entry.name",
+            "out.newFoldername" : "\"\""
+          },
+          "code" : "out.folder.add(new com.alfresco.connector.demo.Folder().setName(result.nodeEntry.entry.name).setId(result.nodeEntry.entry.id));"
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 312, "y" : 464 }
+      },
+      "connect" : [
+        { "id" : "f33", "to" : "f13", "via" : [ { "x" : 752, "y" : 464 } ], "color" : "default" }
+      ]
+    }, {
+      "id" : "f34",
+      "type" : "SubProcessCall",
+      "name" : [
+        "add a comment ",
+        "to folder"
+      ],
+      "config" : {
+        "processCall" : "Alfresco/Documents:addCommentToFodler(String,String)",
+        "call" : {
+          "map" : {
+            "param.folderId" : "in.folderid",
+            "param.comment" : "in.comment"
+          }
+        },
+        "output" : {
+          "map" : {
+            "out" : "in",
+            "out.newFoldername" : "\"\""
+          }
+        }
+      },
+      "visual" : {
+        "at" : { "x" : 328, "y" : 560 }
+      },
+      "connect" : [
+        { "id" : "f35", "to" : "f20", "color" : "default" }
+      ]
+    } ],
+  "layout" : {
+    "colors" : {
+      "NodeStyle4" : "rgb(0, 128, 0)"
+    }
+  }
+}

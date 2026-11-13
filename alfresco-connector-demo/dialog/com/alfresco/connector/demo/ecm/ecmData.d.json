@@ -1,0 +1,33 @@
+{
+  "$schema" : "https://json-schema.axonivy.com/14.0/project/data-class.json",
+  "simpleName" : "ecmData",
+  "namespace" : "com.alfresco.connector.demo.ecm",
+  "fields" : [ {
+    "name" : "documents",
+    "type" : "List<com.alfresco.api.explorer.NodeChildAssociationEntry>",
+    "modifiers" : [ ]
+  }, {
+    "name" : "file",
+    "type" : "File",
+    "modifiers" : [ ]
+  }, {
+    "name" : "folderid",
+    "modifiers" : [ ]
+  }, {
+    "name" : "connectionError",
+    "modifiers" : [ ]
+  }, {
+    "name" : "comment",
+    "modifiers" : [ ]
+  }, {
+    "name" : "foldername",
+    "modifiers" : [ ]
+  }, {
+    "name" : "newFoldername",
+    "modifiers" : [ ]
+  }, {
+    "name" : "folder",
+    "type" : "List<com.alfresco.connector.demo.Folder>",
+    "modifiers" : [ ]
+  } ]
+}
